@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.bff</groupId>
 	<artifactId>bff</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>latest</version>
 	<name/>
 	<description/>
 	<url/>
@@ -64,7 +64,25 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>3.28.0</version>
+				<configuration>
+					<targetJdk>25</targetJdk>
+				</configuration>
+			</plugin>
 		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-pmd-plugin</artifactId>
+					<version>3.23.0</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
 
 </project>

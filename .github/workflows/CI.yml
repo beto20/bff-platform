@@ -67,4 +67,24 @@ jobs:
         run: echo "$DOCKER_TOKEN" | docker login --username albertovs --password-stdin
 
       - name: Push image
-        run: docker push albertovs/bff-platform:v1.0.0 
+        run: docker push albertovs/bff-platform:v1.0.0
+
+  deploy_ec2:
+    needs: ["publish_image"]
+    runs-on: ubuntu-latest
+    environment:
+      name: dev
+    steps:
+      - name: Execute remote SSH commands using password
+        uses: appleboy/ssh-action@v1
+        #        env:
+        #          SSH_KEY_PSSW: ${{ secrets.SSH_KEY }}
+        with:
+          host: ${{ secrets.HOST }}
+          username: ubuntu
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: |
+            whoami
+            sudo docker pull albertovs/bff-platform:v1.0.0
+            sudo docker run -p 8080:8080 -d albertovs/bff-platform:v1.0.0

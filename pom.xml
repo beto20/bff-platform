@@ -29,6 +29,7 @@
 	<properties>
 		<java.version>25</java.version>
 		<spring-cloud.version>2025.1.2</spring-cloud.version>
+		<spring-cloud-aws.version>4.1.0</spring-cloud-aws.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -45,6 +46,10 @@
 			<artifactId>spring-boot-starter-webmvc-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>io.awspring.cloud</groupId>
+			<artifactId>spring-cloud-aws-starter-sqs</artifactId>
+		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -52,6 +57,13 @@
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
 				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>io.awspring.cloud</groupId>
+				<artifactId>spring-cloud-aws-dependencies</artifactId>
+				<version>${spring-cloud-aws.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>

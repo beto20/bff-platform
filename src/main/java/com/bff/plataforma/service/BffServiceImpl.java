@@ -37,7 +37,7 @@ public class BffServiceImpl implements BffService {
 //            response.add(dto);
 //        }
 
-        AttendeeRegisteredEvent event = AttendeeRegisteredEvent.create(UUID.randomUUID().toString(), "test@mail.com");
+        AttendeeRegisteredEvent event = AttendeeRegisteredEvent.create(UUID.randomUUID().toString(), "test_"+UUID.randomUUID()+"_dom@mail.com");
 
         publisher.publish(event);
 

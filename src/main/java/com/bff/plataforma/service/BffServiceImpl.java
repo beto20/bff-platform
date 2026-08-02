@@ -24,18 +24,18 @@ public class BffServiceImpl implements BffService {
 
     @Override
     public List<BffResponse> getAll() {
-//        var platforms = platformClient.getAll();
-//        var repositories = repositoryClient.getAll();
+        var platforms = platformClient.getAll();
+        var repositories = repositoryClient.getAll();
 
         var response = new ArrayList<BffResponse>();
 
-//        for (int i = 0; i < platforms.size(); i++) {
-//            var dto = new BffResponse();
-//            dto.setPlatformResponse(platforms.get(i));
-//            dto.setRepositoryResponse(repositories.get(i));
-//
-//            response.add(dto);
-//        }
+        for (int i = 0; i < platforms.size(); i++) {
+            var dto = new BffResponse();
+            dto.setPlatformResponse(platforms.get(i));
+            dto.setRepositoryResponse(repositories.get(i));
+
+            response.add(dto);
+        }
 
         AttendeeRegisteredEvent event = AttendeeRegisteredEvent.create(UUID.randomUUID().toString(), "test_"+UUID.randomUUID()+"_dom@mail.com");
 
